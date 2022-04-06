@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.years {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.years li {
+  font-weight: bold;
+  margin: 0 0 10px 20px;
+  transform: rotate(-45deg);
+  opacity: 0.2;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.years li.active {
+  opacity: 1;
+}
+
+.timeline {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.timeline li {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #fff;
+  background-color: #000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.timeline li.active {
+  background-color: #fff;
+}
+
+.timeline li::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 120px;
+  background-color: #fff;
+  top: 5px;
+  left: 12px;
+}
+
+.timeline li:last-child::after {
+  display: none;
+}
+
+.map {
+  width: 600px;
+  height: 600px;
+  position: relative;
+  background-image: url("./img/map.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+
+.modal {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: 1px solid #fff;
+  width: 200px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 0.35s ease;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.modal.show {
+  opacity: 1;
+}
