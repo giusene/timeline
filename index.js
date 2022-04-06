@@ -27,11 +27,6 @@ const rect = draw
   .stroke("#fff")
   .attr({ fill: "transparent", x: markers[0].x, y: markers[0].y });
 
-const dot = draw
-  .rect(10, 10)
-  .attr({ fill: "#f06", x: markers[0].x + 5, y: markers[0].y + 5 })
-  .css({ cursor: "pointer" });
-
 const horizontal = draw
   .rect(600, 1)
   .attr({ fill: "#fff", x: 0, y: markers[0].y + 10 });
@@ -39,6 +34,11 @@ const horizontal = draw
 const vertical = draw
   .rect(1, 600)
   .attr({ fill: "#fff", x: markers[0].x + 8, y: 10 });
+
+const dot = draw
+  .rect(10, 10)
+  .attr({ fill: "#f06", x: markers[0].x + 5, y: markers[0].y + 5 })
+  .css({ cursor: "pointer" });
 
 const addActive = items => {
   items === "first"
@@ -78,11 +78,13 @@ li.forEach(item => {
   });
 });
 
-const pointer = document.querySelector("svg rect");
+const pointers = document.querySelectorAll("svg rect");
 const modal = document.querySelector(".modal");
 
-pointer.addEventListener("click", () => {
-  modal.classList.toggle("show");
+pointers.forEach(pointer => {
+  pointer.addEventListener("click", () => {
+    modal.classList.toggle("show");
+  });
 });
 
 modal.addEventListener("click", () => {
